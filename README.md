@@ -29,6 +29,6 @@ arduino-cli upload -p <upload-port>
 # e.g. arduino-cli upload -p /dev/cu.usbmodem143401
 
 # Monitor
-arduino-cli upload -p <monitor-port> --config 115200
-# e.g. arduino-cli upload -p /dev/cu.usbmodem574C0335481 --config 115200
+arduino-cli monitor -p <monitor-port> --config 115200
+# e.g. arduino-cli monitor -p /dev/cu.usbmodem574C0335481 --config 115200
 ```
