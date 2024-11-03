@@ -3,7 +3,8 @@
 ZigBee Temperatur Sensor End Device using an ESP32-C6 microcontroller and a DS18B20 temperature sensor.
 
 ## Required software
-- arduino-cli
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [pioarduino VSCode extension](https://github.com/pioarduino/pioarduino-vscode-ide)
 
 ## Required hardware
 - ESP32-C6 (Tested with a Waveshare ESP32-C6-DEV-KIT-N8)

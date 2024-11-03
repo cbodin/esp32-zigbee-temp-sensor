@@ -1,9 +1,0 @@
-profiles:
-  esp32-zigbee-temp-sensor:
-    fqbn: esp32:esp32:esp32c6
-    platforms:
-      - platform: esp32:esp32 (3.0.7)
-        platform_index_url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
-    programmer: esptool
-
-default_profile: esp32-zigbee-temp-sensor
