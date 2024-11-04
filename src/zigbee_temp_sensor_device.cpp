@@ -37,14 +37,19 @@ public:
     {
         zbTempSensor->setManufacturerAndModel("Espressif", "ZigbeeTempSensor");
         zbTempSensor->setMinMaxValue(-55, 125);
-        zbTempSensor->setTolerance(0.01);
+        zbTempSensor->setTolerance(0.01f);
 
         Zigbee.addEndpoint(zbTempSensor);
         bool status = Zigbee.begin(ZIGBEE_END_DEVICE);
 
         if (status)
         {
-            zbTempSensor->setReporting(0, 10, 0);
+            // Set reporting interval for temperature measurement in seconds, must be called after Zigbee.begin()
+            // min_interval and max_interval in seconds, delta (temp change in °C)
+            // if min = 1 and max = 0, reporting is sent only when temperature changes by delta
+            // if min = 0 and max = 10, reporting is sent every 10 seconds or temperature changes by delta
+            // if min = 0, max = 10 and delta = 0, reporting is sent every 10 seconds regardless of temperature change
+            zbTempSensor->setReporting(0, 10, 0.1f);
         }
 
         return status;
