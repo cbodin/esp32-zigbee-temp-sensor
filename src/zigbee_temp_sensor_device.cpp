@@ -11,8 +11,7 @@ class ZigbeeTempSensorDevice
 
 public:
     /**
-     * @brief Constructs a TempSensor object with the specified pin.
-     * @param tempSensorPin The pin number where the temperature sensor is connected.
+     * @brief Constructs a ZigbeeTempSensorDevice object.
      */
     ZigbeeTempSensorDevice()
     {
@@ -30,8 +29,8 @@ public:
     ZigbeeTempSensorDevice &operator=(const ZigbeeTempSensorDevice &) = delete;
 
     /**
-     * @brief Initializes the temperature sensor and finds the address.
-     * @return True if the sensor was found; false otherwise.
+     * @brief Initializes and configures the Zigbee library.
+     * @return True if the zigbee service was started successfully; false otherwise.
      */
     bool setup()
     {
