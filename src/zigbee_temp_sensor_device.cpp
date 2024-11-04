@@ -65,4 +65,12 @@ public:
     {
         zbTempSensor->reportTemperature();
     }
+
+    /**
+     * @brief Factory reset the zigbee controller.
+     */
+    void factoryReset()
+    {
+        Zigbee.factoryReset();
+    }
 };
