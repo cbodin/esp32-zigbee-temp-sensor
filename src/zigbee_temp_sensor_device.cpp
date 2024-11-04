@@ -19,6 +19,13 @@ public:
         zbTempSensor = new ZigbeeTempSensor(10);
     }
 
+    ~ZigbeeTempSensorDevice()
+    {
+        // The desctructure function of ZigbeeTempSensor is currently undefined-
+        // We work around this by using a pointer and skipping destructure completely.
+        // delete zbTempSensor;
+    }
+
     ZigbeeTempSensorDevice(const ZigbeeTempSensorDevice &) = delete;
     ZigbeeTempSensorDevice &operator=(const ZigbeeTempSensorDevice &) = delete;
 
@@ -31,10 +38,16 @@ public:
         zbTempSensor->setManufacturerAndModel("Espressif", "ZigbeeTempSensor");
         zbTempSensor->setMinMaxValue(-55, 125);
         zbTempSensor->setTolerance(0.01);
-        zbTempSensor->setReporting(0, 10, 0);
 
         Zigbee.addEndpoint(zbTempSensor);
-        return Zigbee.begin(ZIGBEE_END_DEVICE);
+        bool status = Zigbee.begin(ZIGBEE_END_DEVICE);
+
+        if (status)
+        {
+            zbTempSensor->setReporting(0, 10, 0);
+        }
+
+        return status;
     }
 
     /**
